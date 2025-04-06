@@ -22,6 +22,22 @@ class DoublyLL:
         else:
             print("! Element has NOT been found !")
 
+
+    def insertion(self, data):
+        Nnode = Node(data)
+        if self.head is None:
+            self.head = Nnode
+            print(f"! Successfully inserted {data} as head !")
+        else:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = Nnode
+            Nnode.prev = temp
+            print(f"! Successfully inserted {data} at end  !")
+
+
+
     def display(self):
         if self.head == None:
             print("! List Is Empty !")
@@ -34,13 +50,10 @@ class DoublyLL:
 
 
 l = DoublyLL()
-n = Node(10)
-l.head = n
-n1 = Node(20)
-n.next = n1
-n2 = Node(30)
-n2.prev = n1
-n1.next = n2
+l.insertion(10)
+l.insertion(20)
+l.insertion(30)
+l.searching(20)
+l.searching(50)
 l.display()
 print(end='\n')
-l.searching(20)
